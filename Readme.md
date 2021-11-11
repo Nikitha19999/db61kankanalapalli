@@ -1,3 +1,0 @@
-# db61kankanalapalli
-
-
