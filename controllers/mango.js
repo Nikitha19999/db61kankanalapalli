@@ -26,13 +26,23 @@ exports.mango_view_all_Page = async function (req, res) {
       res.send(`{"error": ${err}}`);
     }
   };
-  
+  // for a specific mango. 
+exports.mango_detail = async function(req, res) { 
+    console.log("detail"  + req.params.id) 
+    try { 
+        result = await mango.findById( req.params.id) 
+        res.send(result) 
+    } catch (error) { 
+        res.status(500) 
+        res.send(`{"error": document for id ${req.params.id} not found`); 
+    } 
+}; 
 
  
 // for a specific mango. 
-exports.mango_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: mango detail: ' + req.params.id); 
-}; 
+//exports.mango_detail = function(req, res) { 
+   // res.send('NOT IMPLEMENTED: mango detail: ' + req.params.id); 
+//}; 
  
 
  
