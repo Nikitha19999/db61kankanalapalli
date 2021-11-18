@@ -1,0 +1,36 @@
+
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  form(id='mangoForm', action="/resource/mango", method="POST") 
+    div.form-group 
+        label(for='breed' class="form-lable") Mango Type 
+        input#breed(type='text', name='breed' class="form-control") 
+    div.form-group 
+        label(for='colour' class="form-lable") Mango colour 
+        input#colour(type='text', name='colour' class="form-control") 
+    div.form-group 
+        label(for='price' class="form-lable") Mango price 
+        input#price(type='number', name='price' class="form-control") 
+    input(type="submit"  class="btn btn-primary")
+    a(href="/mango" class="btn btn-secondary")  Go to mangoes
+ 
+  script. 
+    document.forms['mangoForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    }); 

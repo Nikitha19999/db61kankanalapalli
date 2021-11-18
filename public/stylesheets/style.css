@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+.dogAttr { 
+  background-color: rgb(8, 185, 67); 
+  width: 120px; 
+} 

@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+  
+  h1= title 
+
+  if (toShow == null) 
+    h2 No instance to view 
+  else 
+ 
+    - let id = toShow._id 
+    - let breed = toShow.breed 
+    - let colour = toShow.colour 
+    - let price = toShow.price 
+
+     div(class="card m-3" style="width: 48rem;")
+            div(class="card-body")
+              div( class="text-center display-4 text-uppercase") Name: #{breed}
+              div(class="text-center display-6")
+                span Color:
+                    span( class="text-center display-6" style='color:'+colour)  #{colour}
+              div( class="text-center display-6") Price: $ #{price}
+              div( class="text-center display-6")
+                    a(href="/mango" class="btn btn-secondary")  Go to Mangoes

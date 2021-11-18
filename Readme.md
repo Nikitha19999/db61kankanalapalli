@@ -1,3 +1,15 @@
-# DB61KANKANALAPALLI
+# db38vissapragada
+Assignment-11
+<a href="https://db61kankanalapalli.herokuapp.com/">Link to Heroku: https://db61kankanalapalli.herokuapp.com/ </a>
+<br>
+<br>
+<br>
 
-Link to running heroku : https://db61kankanalapalli.herokuapp.com/ 
+
+
+Class - icecream class dog{ constructor(breed,price,colour){
+    this.breed = breed;
+    this.price = price;
+    this.colour = colour;s
+}
+}
