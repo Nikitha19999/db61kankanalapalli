@@ -2,25 +2,20 @@ extends layout
 
 block content
   h1= title
-  //- const restaurant = ['Room_type','Duration','Cost']
-  //- - let items = [] 
-  - let items = results; 
-  //- - let results;
-  - let o;
-  script.
-    function buy(x){
-      alert('Purchased Item: ' + x)
-   } 
-  div(class='container-fluid')
-    div(class='row ')
-      each o, index in items 
-        
-          div(class="card m-3" style="width: 40rem;")
-            div(class="card-body")
-              div( onclick='buy('+index+')' class="text-center display-4 text-uppercase") #{o.breed}
-              div( onclick='buy('+index+')' class="text-center display-6" style='color:'+o.colour) #{o.colour}
-              div( onclick='buy('+index+')' class="text-center display-6") $ #{o.cost}
-              div(class="d-flex justify-content-around mt-4")
-                a(href="/mango/detail/?id="+o._id class="btn btn-secondary" )  Detail
-                a(href="/mango/update/?id="+o._id class="btn btn-primary")  Update
-                a(href="/mango/delete/?id="+o._id class="btn btn-danger")  Delete
+  br
+  - let mango = results
+  
+   div(class = "container-fluid")
+    div(class = "row m-1")
+     each i,index in mango
+      -let destination = `dispatch(\"/mango/update?id=${i._id}\")`
+     
+        div(class="row-sm-2", class="m-1") Item #{i.type}(#{i.duration}) is #{i.cost} 
+            button.btn( class="btn-primary ml-1", onclick= destination) Update 
+        script.
+                function buy(itemNo){
+                    alert(`You purchased item ${itemNo+1}`)
+                }
+                function dispatch(path){ 
+                window.location.href=path 
+                }
